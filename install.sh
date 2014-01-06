@@ -26,10 +26,12 @@ if which git >/dev/null; then
   git config --global color.ui true
   git config --global core.editor vim
   git config --global core.fileMode false
-  git config --global core.excludesfile ${PATH_TO_FILE}/git/gitignore_global
+  git config --global core.excludesfile ${PATH_TO_FILE}/gitignore_global
   git config --global pager.diff ""
-  git config --global diff.external "git_diff_wrapper"
   git config --global alias.branchall "!git_branch_all"
+  git config --global diff.tool vimdiff
+  git config --global alias.vimdiff difftool
+  git config --global alias.branchdiff '!git difftool $(git merge-base master HEAD)'
   git config --global alias.lg "log --graph --oneline --decorate --all"
   git config --global alias.s "status"
   git config --global alias.ci "commit"
