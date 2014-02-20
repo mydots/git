@@ -43,6 +43,7 @@ if which git >/dev/null; then
   git config --global color.decorate.head cyan
   git config --global color.decorate.branch green
   git config --global push.default current
+  git config --global rerere.enabled true
 else
   echo "${RED}Attention: ${DEFAULT} Git not found"
 fi
