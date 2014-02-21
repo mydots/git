@@ -1,0 +1,23 @@
+#!/bin/sh
+ 
+if git-rev-parse --verify HEAD >/dev/null 2>&1; then
+  against=HEAD
+else
+  # A random bad sha
+  against=0000000000000000000000000000000000000000
+fi
+
+let PASS=0
+ 
+for FILE in `git diff-index --name-status $against -- | grep -E -v ^D | cut -c3-` ; do
+  # Check if the file contains 'debugger'
+  if [[ `grep debugger ${FILE}` ]]; then
+    echo $FILE ' contains debugger!'
+    let PASS=1
+  # Check if the file contains 'binding.pry'
+  elif [[ `grep binding.pry ${FILE}` ]]; then
+    echo $FILE ' contains binding.pry!'
+    let PASS=1
+  fi
+done
+exit ${PASS} 
