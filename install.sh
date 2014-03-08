@@ -45,6 +45,7 @@ if which git >/dev/null; then
   git config --global color.decorate.branch green
   git config --global push.default current
   git config --global rerere.enabled true
+  git config --global branch.autosetuprebase always
 else
   echo "${RED}Attention: ${DEFAULT} Git not found"
 fi
