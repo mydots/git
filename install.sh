@@ -39,6 +39,7 @@ if which git >/dev/null; then
   git config --global alias.br "branch"
   git config --global alias.df "diff"
   git config --global alias.rb "rebase"
+  git config --global alias.amend "commit --amend -C HEAD"
   git config --global color.decorate.remote red
   git config --global color.decorate.head cyan
   git config --global color.decorate.branch green
