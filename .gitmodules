@@ -1,0 +1,3 @@
+[submodule "template_dir/hooks"]
+	path = template_dir/hooks
+	url = git@github.com:frankywahl/git_hooks.git
