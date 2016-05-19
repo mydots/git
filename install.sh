@@ -20,7 +20,7 @@ if which git >/dev/null; then
   rm -rf ~/.gitconfig
   touch ${PATH_TO_FILE}/gitconfig 
   ln -s ${PATH_TO_FILE}/gitconfig ~/.gitconfig
-  git config --global user.name "Franky W. (${USER} - ${HOSTNAME})"
+  git config --global user.name "Franky W."
   git config --global user.email "${EMAIL_GIT}"
   git config --global merge.tool vimdiff
   git config --global color.ui true
