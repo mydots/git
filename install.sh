@@ -48,6 +48,7 @@ if which git >/dev/null; then
   git config --global push.default current
   git config --global rerere.enabled true
   git config --global branch.autosetuprebase always
+  git config --global fetch.prune true
 else
   echo "${RED}Attention: ${DEFAULT} Git not found"
 fi
