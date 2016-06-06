@@ -41,6 +41,9 @@ if which git >/dev/null; then
   git config --global alias.rb "rebase"
   git config --global alias.amend "commit --amend -C HEAD"
   git config --global alias.wdiff "diff --color-words"
+  git config --global alias.aliases "config --get-regexp alias"
+  git config --global alias.wip "!git add -A && git commit -m 'wip'"
+  git config --global alias.rwd "!git checkout HEAD~"
   git config --global help.autocorrect 5 # Wait 50 ms before autocorrecting
   git config --global color.decorate.remote red
   git config --global color.decorate.head cyan
