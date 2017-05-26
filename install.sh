@@ -31,7 +31,7 @@ if which git >/dev/null; then
   git config --global alias.branchall "!git_branch_all"
   git config --global diff.tool vimdiff
   git config --global alias.vimdiff difftool
-  git config --global alias.branchdiff '!git difftool $(git merge-base master HEAD)'
+  git config --global alias.branchdiff '!git diff $(git merge-base master HEAD)'
   git config --global alias.lg "log --graph --oneline --decorate --all"
   git config --global alias.s "status"
   git config --global alias.ci "commit"
