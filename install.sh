@@ -53,6 +53,7 @@ if which git >/dev/null; then
   git config --global rerere.enabled true
   git config --global branch.autosetuprebase always
   git config --global fetch.prune true
+  git config --global grep.lineNumber true
 else
   echo "${RED}Attention: ${DEFAULT} Git not found"
 fi
