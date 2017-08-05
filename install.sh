@@ -28,7 +28,6 @@ if which git >/dev/null; then
   git config --global core.fileMode false
   git config --global core.excludesfile ${PATH_TO_FILE}/gitignore_global
   git config --global pager.diff ""
-  git config --global alias.branchall "!git_branch_all"
   git config --global diff.tool vimdiff
   git config --global alias.vimdiff difftool
   git config --global alias.branchdiff '!git diff $(git merge-base master HEAD)'
@@ -54,6 +53,9 @@ if which git >/dev/null; then
   git config --global branch.autosetuprebase always
   git config --global fetch.prune true
   git config --global grep.lineNumber true
+  for binary in $(ls ${PATH_TO_FILE}/bin); do
+    git config --global alias.${binary} "!${PATH_TO_FILE}/bin/${binary}"
+  done
 else
   echo "${RED}Attention: ${DEFAULT} Git not found"
 fi
