@@ -29,6 +29,16 @@ if which git >/dev/null; then
   git config --global core.excludesfile ${PATH_TO_FILE}/gitignore_global
   git config --global pager.diff ""
   git config --global diff.tool vimdiff
+  git config --global help.autocorrect 5 # Wait 50 ms before autocorrecting
+  git config --global color.decorate.remote red
+  git config --global color.decorate.head cyan
+  git config --global color.decorate.branch green
+  git config --global push.default current
+  git config --global rerere.enabled true
+  git config --global branch.autosetuprebase always
+  git config --global fetch.prune true
+  git config --global grep.lineNumber true
+
   git config --global alias.vimdiff difftool
   git config --global alias.branchdiff '!git diff $(git merge-base master HEAD)'
   git config --global alias.lg "log --graph --oneline --decorate --all"
@@ -44,15 +54,6 @@ if which git >/dev/null; then
   git config --global alias.wip "!git add -A && git commit -m 'wip'"
   git config --global alias.rwd "!git checkout HEAD~"
   git config --global alias.pushf "!git push --force-with-lease"
-  git config --global help.autocorrect 5 # Wait 50 ms before autocorrecting
-  git config --global color.decorate.remote red
-  git config --global color.decorate.head cyan
-  git config --global color.decorate.branch green
-  git config --global push.default current
-  git config --global rerere.enabled true
-  git config --global branch.autosetuprebase always
-  git config --global fetch.prune true
-  git config --global grep.lineNumber true
   for binary in $(ls ${PATH_TO_FILE}/bin); do
     git config --global alias.${binary} "!${PATH_TO_FILE}/bin/${binary}"
   done
