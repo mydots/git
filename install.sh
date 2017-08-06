@@ -16,7 +16,7 @@ fi
 cd ${PATH_TO_FILE} && git submodule init && git submodule update 
 
 # Git
-if which git >/dev/null; then
+if command -v git >/dev/null; then
   rm -rf ~/.gitconfig
   touch ${PATH_TO_FILE}/gitconfig 
   ln -s ${PATH_TO_FILE}/gitconfig ~/.gitconfig
@@ -27,7 +27,9 @@ if which git >/dev/null; then
   git config --global core.editor vim
   git config --global core.fileMode false
   git config --global core.excludesfile ${PATH_TO_FILE}/gitignore_global
-  git config --global pager.diff ""
+  if command -v brew >/dev/null; then
+    git config --global core.pager "\`brew --prefix\`/share/git-core/contrib/diff-highlight/diff-highlight | less"
+  fi
   git config --global diff.tool vimdiff
   git config --global help.autocorrect 5 # Wait 50 ms before autocorrecting
   git config --global color.decorate.remote red
