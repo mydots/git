@@ -9,3 +9,6 @@ Icon?
 ehthumbs.db
 Thumbs.db
 .env
+.sass-cache
+tmp_spec.rb
+*.vscode/*
