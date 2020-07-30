@@ -56,6 +56,7 @@ if command -v git >/dev/null; then
   git config --global alias.wip "!git add -A && git commit -m 'wip'"
   git config --global alias.rwd "!git checkout HEAD~"
   git config --global alias.pushf "!git push --force-with-lease"
+  git config --global pull.rebase true
   for binary in $(ls ${PATH_TO_FILE}/bin); do
     git config --global alias.${binary} "!${PATH_TO_FILE}/bin/${binary}"
   done
