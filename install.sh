@@ -27,6 +27,9 @@ if command -v git >/dev/null; then
   git config --global core.editor vim
   git config --global core.fileMode false
   git config --global core.excludesfile ${PATH_TO_FILE}/gitignore_global
+  git config --global core.attributesfile ${PATH_TO_FILE}/gitattributes
+
+  git config --global diff.rspec.xfuncname "^[ \t]*((RSpec|describe|context|it|before|after|around|feature|scenario|background)[ \t].*)$"
   if command -v brew >/dev/null; then
     git config --global core.pager "\`brew --prefix\`/share/git-core/contrib/diff-highlight/diff-highlight | less"
   fi
