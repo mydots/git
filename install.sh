@@ -63,6 +63,7 @@ if command -v git >/dev/null; then
   for binary in $(ls ${PATH_TO_FILE}/bin); do
     git config --global alias.${binary} "!${PATH_TO_FILE}/bin/${binary}"
   done
+  git config --global url.ssh://git@github.com/.insteadOf https://github.com/
 else
   echo "${RED}Attention: ${DEFAULT} Git not found"
 fi
