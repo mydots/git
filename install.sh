@@ -64,6 +64,7 @@ if command -v git >/dev/null; then
     git config --global alias.${binary} "!${PATH_TO_FILE}/bin/${binary}"
   done
   git config --global url.ssh://git@github.com/.insteadOf https://github.com/
+  git config --global init.defaultBranch main
 else
   echo "${RED}Attention: ${DEFAULT} Git not found"
 fi
