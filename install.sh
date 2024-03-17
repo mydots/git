@@ -45,7 +45,7 @@ if command -v git >/dev/null; then
   git config --global grep.lineNumber true
 
   git config --global alias.vimdiff difftool
-  git config --global alias.branchdiff 'diff master...HEAD'
+  git config --global alias.branchdiff 'diff main...HEAD'
   git config --global alias.lg "log --graph --oneline --decorate --all"
   git config --global alias.s "status"
   git config --global alias.ci "commit"
