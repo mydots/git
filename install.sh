@@ -24,6 +24,11 @@ if command -v git >/dev/null; then
   git config --global user.email "${EMAIL_GIT}"
   git config --global merge.tool vimdiff
   git config --global color.ui true
+  git config --global column.ui auto
+  git config --global branch.autosetuprebase always
+  git config --global branch.sort -committerdate
+  git config --global tag.sort version:refname
+
   git config --global core.editor vim
   git config --global core.fileMode false
   git config --global core.excludesfile ${PATH_TO_FILE}/gitignore_global
@@ -33,16 +38,28 @@ if command -v git >/dev/null; then
   if command -v brew >/dev/null; then
     git config --global core.pager "\`brew --prefix\`/share/git-core/contrib/diff-highlight/diff-highlight | less"
   fi
+  git config --global diff.algorithm histogram
   git config --global diff.tool vimdiff
+  git config --global diff.sopsdiffer.textconv "sops --decrypt"
+  git config --global diff.colorMoved plain
+  git config --global diff.mnemonicPrefix true
+  git config --global diff.renames true
+  git config --global grep.lineNumber true
+
   git config --global help.autocorrect 5 # Wait 50 ms before autocorrecting
   git config --global color.decorate.remote red
   git config --global color.decorate.head cyan
   git config --global color.decorate.branch green
   git config --global push.default current
+  git config --global push.autoSetupRemote true
+  git config --global push.followTags true
   git config --global rerere.enabled true
-  git config --global branch.autosetuprebase always
+  git config --global rerere.autoupdate true
   git config --global fetch.prune true
-  git config --global grep.lineNumber true
+  git config --global fetch.pruneTags true
+  git config --global fetch.all true
+  git config --global commit.verbose true
+
 
   git config --global alias.vimdiff difftool
   git config --global alias.branchdiff 'diff main...HEAD'
