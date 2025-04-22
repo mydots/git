@@ -1,0 +1,6 @@
+[user]
+	signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJvCgD6pc1tnu2QAmsrXwMVQ9RfbvfvlxAFJ3qhAfroP franky.wahl@on-running.com
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true

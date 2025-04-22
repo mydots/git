@@ -80,12 +80,20 @@ if command -v git >/dev/null; then
   git config --global alias.addnw "!sh -c 'git diff -U0 -w --no-color \"\$@\" | git apply --cached --ignore-whitespace --unidiff-zero -'"
   git config --global diff.sposdiffer.textconv "sops --decrypt"
 
+  git config --global gpg.ssh.allowedSignersFile ~/.config/git/allowedSigners
+
+  git config --file gitconfig-work user.signingKey "$(cat ~/.ssh/id_ed25519.pub)"
+  git config --file gitconfig-work gpg.format ssh
+  git config --file gitconfig-work commit.gpgsign true
+
   git config --global pull.rebase true
   for binary in $(ls ${PATH_TO_FILE}/bin); do
     git config --global alias.${binary} "!${PATH_TO_FILE}/bin/${binary}"
   done
   git config --global url.ssh://git@github.com/.insteadOf https://github.com/
   git config --global init.defaultBranch main
+
+  git config --global includeIf."gitdir:~/Dev/onrunning/".path ${PATH_TO_FILE}/gitconfig-work
 else
   echo "${RED}Attention: ${DEFAULT} Git not found"
 fi
