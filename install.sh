@@ -28,6 +28,7 @@ if command -v git >/dev/null; then
   git config --global core.fileMode false
   git config --global core.excludesfile ${PATH_TO_FILE}/gitignore_global
   git config --global core.attributesfile ${PATH_TO_FILE}/gitattributes
+  git config --global commit.template ${PATH_TO_FILE}/commitmsg
 
   git config --global diff.rspec.xfuncname "^[ \t]*((RSpec|describe|context|it|before|after|around|feature|scenario|background)[ \t].*)$"
   if command -v brew >/dev/null; then
