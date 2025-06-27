@@ -12,3 +12,4 @@ Thumbs.db
 .sass-cache
 tmp_spec.rb
 *.vscode/*
+tmp*
