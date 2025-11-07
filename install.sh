@@ -78,6 +78,17 @@ if command -v git >/dev/null; then
   git config --global alias.rwd "!git checkout HEAD~"
   git config --global alias.pushf "!git push --force-with-lease"
   git config --global alias.addnw "!sh -c 'git diff -U0 -w --no-color \"\$@\" | git apply --cached --ignore-whitespace --unidiff-zero -'"
+	git config --global alias.pr-checkout '!f() { \
+  pr=$1; \
+  if [ -z "$pr" ]; then echo "Usage: git pr-checkout <PR_NUMBER>"; return 1; fi; \
+  echo "Fetching PR #$pr..."; \
+  git fetch origin pull/$pr/head:pr-$pr && \
+  git checkout pr-$pr && \
+  git branch --set-upstream-to=origin/pr/$pr pr-$pr && \
+  echo "✅ Checked out PR #$pr as branch pr-$pr (upstream: origin/pr/$pr)"; \
+  echo "⚠️  Note: You cannot push to this ref — it’s read-only."; \
+}; f'
+ 
   git config --global diff.sposdiffer.textconv "sops --decrypt"
 
   git config --global gpg.ssh.allowedSignersFile ~/.config/git/allowedSigners
